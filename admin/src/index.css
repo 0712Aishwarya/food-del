@@ -28,3 +28,6 @@ hr{
   flex-direction:column;
   gap:1px;
 }
+.cursor{
+  cursor:pointer;
+}
