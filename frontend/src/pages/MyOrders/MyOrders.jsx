@@ -3,6 +3,7 @@ import './MyOrders.css'
 import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 import { assets } from '../../assets/frontend_assets/assets';
+// import { Console } from 'console';
 
 const MyOrders = () => {
     const {url,token}=useContext(StoreContext);
@@ -25,7 +26,7 @@ const MyOrders = () => {
             {data.map((order,index)=>{
                 return(
 
-                    <div className="my-orders-order">
+                    <div key={index} className="my-orders-order">
                         <img src={assets.parcel_icon} alt="" />
                         <p>{order.items.map((item,index)=>{
                             if(index===order.items.length-1){

@@ -20,7 +20,7 @@ const placeOrder=async(req,res)=>{
             price_data:{
                 currency:"inr",
                 product_data:{
-                    namee:item.name
+                    name:item.name
                 },
                 unit_amount:item.price*100*10
             },
@@ -85,7 +85,7 @@ const userOrders=async(req,res)=>{
 }
 const listOrders=async(req,res)=>{
     try {
-        const orders=await orderModel.findOneAndDelete({});
+        const orders=await orderModel.find({});
         res.json({success:true,data:orders})
     } catch (error) {
         console.log(error);
@@ -96,7 +96,7 @@ const listOrders=async(req,res)=>{
 const updateStatus=async(req,res)=>{
     try {
         await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status})
-        res,json({success:true,message:"status Updated"})
+        res.json({success:true,message:"Status Updated"})
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Error"})
